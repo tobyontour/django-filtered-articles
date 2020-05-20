@@ -1,0 +1,9 @@
+venv
+.vscode
+.eggs
+django_articles_*
+*.egg-info
+*.swp
+*.pyc
+*.orig
+**/__pycache__/**
