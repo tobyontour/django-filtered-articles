@@ -1,4 +1,4 @@
-venv
+/venv
 .vscode
 .eggs
 *.egg-info
@@ -6,3 +6,5 @@ venv
 *.pyc
 *.orig
 **/__pycache__/**
+/build
+/dist
