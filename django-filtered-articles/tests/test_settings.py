@@ -12,7 +12,7 @@ INSTALLED_APPS=[
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sites",
-    "filtered_articles",
+    "django-filtered-articles",
 ]
 SITE_ID=1
 NOSE_ARGS=['-s']

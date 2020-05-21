@@ -36,5 +36,5 @@ setuptools.setup(
         'django-model-utils>=4.0.0',
         'docutils>=0.16'
     ],
-    test_suite='filtered_articles.tests.runtests.runtests'
+    test_suite='django-filtered-articles.tests.runtests.runtests'
 )

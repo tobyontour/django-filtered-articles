@@ -10,7 +10,7 @@ sys.path.insert(0, APP_DIR)
 SETTINGS_DICT = {
     'BASE_DIR': APP_DIR,
     'INSTALLED_APPS': (
-        'filtered_articles',
+        'django-filtered-articles',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -19,7 +19,7 @@ SETTINGS_DICT = {
         'django.contrib.staticfiles',
         'django.contrib.sites',
     ),
-    'ROOT_URLCONF': 'filtered_articles.tests.urls',
+    'ROOT_URLCONF': 'django-filtered-articles.tests.urls',
     'DATABASES': {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -43,8 +43,8 @@ SETTINGS_DICT = {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
             'APP_DIRS': True,
             'DIRS': [
-                os.path.join(APP_DIR, 'filtered_articles', 'templates'),
-                os.path.join(APP_DIR, 'filtered_articles', 'tests', 'templates'),
+                os.path.join(APP_DIR, 'django-filtered-articles', 'templates'),
+                os.path.join(APP_DIR, 'django-filtered-articles', 'tests', 'templates'),
             ],
             'OPTIONS': {
                 'context_processors': [
@@ -64,7 +64,7 @@ SETTINGS_DICT = {
 def runtests():
     from django.conf import settings
     settings.configure(**SETTINGS_DICT)
-    # os.environ['DJANGO_SETTINGS_MODULE'] = 'filtered_articles.tests.test_settings'
+    # os.environ['DJANGO_SETTINGS_MODULE'] = 'django-filtered-articles.tests.test_settings'
     import django
     if hasattr(django, 'setup'):
         django.setup()
@@ -75,7 +75,7 @@ def runtests():
 
     # And then we run tests and return the results.
     test_runner = TestRunner(verbosity=1, interactive=True)
-    failures = test_runner.run_tests(['filtered_articles.tests'])
+    failures = test_runner.run_tests(['django-filtered-articles.tests'])
     sys.exit(bool(failures))
 
 if __name__ == '__main__':

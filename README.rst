@@ -10,16 +10,16 @@ Detailed documentation is in the "docs" directory.
 Quick start
 -----------
 
-1. Add "filtered_articles" to your INSTALLED_APPS setting like this::
+1. Add "django-filtered-articles" to your INSTALLED_APPS setting like this::
 
     INSTALLED_APPS = [
         ...
-        'filtered_articles',
+        'django-filtered-articles',
     ]
 
 2. Include the articles URLconf in your project urls.py like this::
 
-    path('articles/', include('filtered_articles.urls')),
+    path('articles/', include('django-filtered-articles.urls')),
 
 3. Run ``python manage.py migrate`` to create the articles models.
 
