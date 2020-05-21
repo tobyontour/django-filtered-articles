@@ -1,5 +1,5 @@
 include LICENSE
 include README.rst
-recursive-include articles/static *
-recursive-include articles/templates *
+recursive-include django-filtered-articles/static *
+recursive-include django-filtered-articles/templates *
 recursive-include docs *
