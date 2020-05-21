@@ -4,14 +4,14 @@ with open("README.rst", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="django-articles-pkg-YOUR-USERNAME-HERE", # Replace with your own username
+    name="django-filtered-articles-pkg-tobyontour", # Replace with your own username
     version="0.0.1",
     author="Toby Bettridge",
     author_email="toby.bettridge@stubside.com",
     description="A django article app",
     long_description=long_description,
     long_description_content_type="text/restructured_text",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/tobyontour/django-filtered-articles",
     packages=setuptools.find_packages(),
     classifiers=[
         "Environment :: Web Environment",
@@ -36,5 +36,5 @@ setuptools.setup(
         'django-model-utils>=4.0.0',
         'docutils>=0.16'
     ],
-    test_suite='articles.tests.runtests.runtests'
+    test_suite='filtered_articles.tests.runtests.runtests'
 )

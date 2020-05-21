@@ -9,12 +9,12 @@ from .models import Article
 
 class ArticleListView(ListView):
     model = Article
-    template_name = 'articles/article_list.html'
+    template_name = 'filtered_articles/article_list.html'
     context_object_name = 'article_list'
 
 class ArticleDetailView(DetailView):
     model = Article
-    template_name = 'articles/article_detail.html'
+    template_name = 'filtered_articles/article_detail.html'
     context_object_name = 'article'
 
 class ArticleCreateView(LoginRequiredMixin, CreateView):

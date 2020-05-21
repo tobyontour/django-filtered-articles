@@ -1,8 +1,8 @@
-========
-Articles
-========
+=================
+Filtered Articles
+=================
 
-Articles is a Django app to provide articles with slug-based URLs and
+Filtered Articles is a Django app to provide articles with slug-based URLs and
 plain text, Markdown, and reStructuredText processing.
 
 Detailed documentation is in the "docs" directory.
@@ -14,12 +14,12 @@ Quick start
 
     INSTALLED_APPS = [
         ...
-        'articles',
+        'filtered_articles',
     ]
 
 2. Include the articles URLconf in your project urls.py like this::
 
-    path('articles/', include('articles.urls')),
+    path('articles/', include('filtered_articles.urls')),
 
 3. Run ``python manage.py migrate`` to create the articles models.
 
