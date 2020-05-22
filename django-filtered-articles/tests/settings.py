@@ -60,4 +60,13 @@ DEBUG= False
 
 SECRET_KEY='This is not a secret key!'
 
-print(os.path.join(APP_DIR, 'django-filtered-articles', 'tests', 'templates'))
+if os.environ.get("DEBUG_OVERRIDE", "False") == "True":
+    ALLOWED_HOSTS = ['127.0.0.1']
+
+    INTERNAL_IPS = [
+        # ...
+        '127.0.0.1',
+        # ...
+    ]
+    DEBUG=True
+    STATIC_URL = '/static/'
