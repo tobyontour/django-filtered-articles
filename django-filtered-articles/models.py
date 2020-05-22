@@ -39,6 +39,11 @@ class Article(TimeStampedModel):
     body = models.TextField()
     slug = models.SlugField(max_length=50, blank=True, unique=True)
 
+    class Meta:
+        permissions = [
+            ("view_unpublished_article", "Can view an unpublished article"),
+        ]
+
     def __str__(self):
         return self.title
 
