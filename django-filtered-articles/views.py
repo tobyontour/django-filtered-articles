@@ -12,6 +12,7 @@ class ArticleListView(ListView):
     model = Article
     template_name = 'django-filtered-articles/article_list.html'
     context_object_name = 'article_list'
+    paginate_by = 12
 
 class ArticleDetailView(DetailView):
     model = Article
