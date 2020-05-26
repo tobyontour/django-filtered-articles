@@ -32,6 +32,9 @@ class ArticleViewTest(TestCase):
         self.assertContains(response, 'Blog post 8')
         self.assertNotContains(response, 'Blog post 7')
         self.assertContains(response, 'Page 1 of 2')
+        url = reverse('article-detail', kwargs={'slug': 'blog-post-19'})
+        self.assertContains(response, f'<a href="{url}">Blog post 19</a>')
+
 
     def test_article_list_does_not_contain_unpublished(self):
         response = self.client.get(reverse('article-list') + '?page=2')
