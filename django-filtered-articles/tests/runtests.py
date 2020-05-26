@@ -20,7 +20,6 @@ def runtests():
 
     # And then we run tests and return the results.
     test_runner = TestRunner(verbosity=1, interactive=True)
-    print('Got here')
     failures = test_runner.run_tests(['django-filtered-articles.tests'])
     sys.exit(bool(failures))
 
