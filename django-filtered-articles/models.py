@@ -32,7 +32,7 @@ class Article(TimeStampedModel):
     )
 
     STATUS = Choices('draft', 'published')
-    status = StatusField(default='draft')
+    status = StatusField(default=STATUS.draft)
 
     author = models.ForeignKey(User, editable=False, on_delete=models.SET_NULL, null=True)
     title = models.CharField(max_length=100)

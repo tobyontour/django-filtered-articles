@@ -40,6 +40,7 @@ class ArticleTest(TestCase):
         self.assertEqual(f'{self.article.author.first_name}', 'John')
         self.assertEqual(f'{self.article.author.last_name}', 'Doe')
         self.assertEqual(f'{self.article.slug}', 'first-blog-post')
+        self.assertEqual(f'{self.article.status}', Article.STATUS.draft)
 
     def test_article_body(self):
         article = Article.objects.filter(title='First blog post')[0]
