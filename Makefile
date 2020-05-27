@@ -1,10 +1,11 @@
 VIRTUAL_ENV_DIR=venv
+APP_NAME=filtered_articles
 
 test:
 	python3 setup.py test
 
 coverage: virtualenv
-	$(VIRTUAL_ENV_DIR)/bin/coverage run django-filtered-articles/tests/runtests.py
+	$(VIRTUAL_ENV_DIR)/bin/coverage run $(APP_NAME)/tests/runtests.py
 	$(VIRTUAL_ENV_DIR)/bin/coverage html --omit="venv/*"
 
 upgrade-local:
@@ -25,3 +26,6 @@ virtualenv:
 
 migrate: virtualenv
 	$(VIRTUAL_ENV_DIR)/bin/python manage.py makemigrations
+
+clean:
+	find $(APP_NAME) -name '*.pyc' -delete

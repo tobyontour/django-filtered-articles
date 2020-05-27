@@ -9,7 +9,7 @@ sys.path.insert(0, APP_DIR)
 
 def runtests():
     from django.conf import settings
-    os.environ['DJANGO_SETTINGS_MODULE'] = 'django-filtered-articles.tests.settings'
+    os.environ['DJANGO_SETTINGS_MODULE'] = 'filtered_articles.tests.settings'
     import django
     if hasattr(django, 'setup'):
         django.setup()
@@ -20,8 +20,7 @@ def runtests():
 
     # And then we run tests and return the results.
     test_runner = TestRunner(verbosity=1, interactive=True)
-    print('Got here')
-    failures = test_runner.run_tests(['django-filtered-articles.tests'])
+    failures = test_runner.run_tests(['filtered_articles.tests'])
     sys.exit(bool(failures))
 
 if __name__ == '__main__':

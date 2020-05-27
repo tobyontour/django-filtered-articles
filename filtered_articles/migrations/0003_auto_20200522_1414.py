@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('django-filtered-articles', '0002_article_markup'),
+        ('filtered_articles', '0002_article_markup'),
     ]
 
     operations = [

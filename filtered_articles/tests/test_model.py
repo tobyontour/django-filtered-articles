@@ -37,6 +37,7 @@ class ArticleTest(TestCase):
 
     def test_article(self):
         self.assertEqual(f'{self.article.title}', 'First blog post')
+        self.assertEqual(str(self.article), 'First blog post')
         self.assertEqual(f'{self.article.author.first_name}', 'John')
         self.assertEqual(f'{self.article.author.last_name}', 'Doe')
         self.assertEqual(f'{self.article.slug}', 'first-blog-post')
@@ -62,3 +63,38 @@ class ArticleTest(TestCase):
         self.assertIn('<p>First paragraph.</p>', article.get_filtered_body())
         self.assertEqual(article.slug, 'third-blog-post')
 
+    def test_slug_generation(self):
+        article = Article.objects.create(
+            title='The quick brown fox',
+            body="Generic body.",
+            author=User.objects.get(email='testuser@example.com'),
+            markup=Article.MARKDOWN,
+        )
+        article.save()
+        article2 = Article.objects.create(
+            title='The quick brown fox',
+            body="Generic body.",
+            author=User.objects.get(email='testuser@example.com'),
+            markup=Article.MARKDOWN,
+        )
+        article2.save()
+        self.assertEqual(article.slug, 'the-quick-brown-fox')
+        self.assertEqual(article2.slug, 'the-quick-brown-fox-001')
+
+    def test_slug_generation_length(self):
+        article = Article.objects.create(
+            title='abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghij',
+            body="Generic body.",
+            author=User.objects.get(email='testuser@example.com'),
+            markup=Article.MARKDOWN,
+        )
+        article.save()
+        article2 = Article.objects.create(
+            title='abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghij',
+            body="Generic body.",
+            author=User.objects.get(email='testuser@example.com'),
+            markup=Article.MARKDOWN,
+        )
+        article2.save()
+        self.assertEqual(article.slug, 'abcdefghijabcdefghijabcdefghijabcdefghijabcdefghij')
+        self.assertEqual(article2.slug, 'abcdefghijabcdefghijabcdefghijabcdefghijabcdef-001')

@@ -64,11 +64,13 @@ class Article(TimeStampedModel):
 
     def _make_unique_slug(self):
         if self.slug == "":
-            slug = slugify(self.title)
+            slug = slugify(self.title)[:50]
             if Article.objects.filter(slug=slug).exists():
-                slugs = [a.slug for a in Article.objects.filter(slug__startswith=slug[:-4])]
+                if len(slug) > 46:
+                    slug = slug[:46]
+                slugs = [a.slug for a in Article.objects.filter(slug__startswith=slug)]
                 for i in range(1, 100):
-                    slug = slug[:-4] + '-{:0>3d}'.format(i)
+                    slug = slug + '-{:0>3d}'.format(i)
                     if slug not in slugs:
                         break
 
