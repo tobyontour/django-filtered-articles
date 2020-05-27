@@ -8,7 +8,7 @@ sys.path.insert(0, APP_DIR)
 
 BASE_DIR=APP_DIR
 INSTALLED_APPS= (
-    'django-filtered-articles',
+    'filtered_articles',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -17,7 +17,7 @@ INSTALLED_APPS= (
     'django.contrib.staticfiles',
     'django.contrib.sites',
 )
-ROOT_URLCONF= 'django-filtered-articles.tests.urls'
+ROOT_URLCONF= 'filtered_articles.tests.urls'
 DATABASES= {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -41,8 +41,8 @@ TEMPLATES= [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'APP_DIRS': True,
         'DIRS': [
-            os.path.join(APP_DIR, 'django-filtered-articles', 'templates'),
-            os.path.join(APP_DIR, 'django-filtered-articles', 'tests', 'templates'),
+            os.path.join(APP_DIR, 'filtered_articles', 'templates'),
+            os.path.join(APP_DIR, 'filtered_articles', 'tests', 'templates'),
         ],
         'OPTIONS': {
             'context_processors': [
@@ -60,7 +60,7 @@ DEBUG= False
 
 SECRET_KEY='This is not a secret key!'
 
-if os.environ.get("DEBUG_OVERRIDE", "False") == "True":
+if os.environ.get("DEBUG_OVERRIDE", "False") == "True":  # pragma: no cover
     ALLOWED_HOSTS = ['127.0.0.1']
 
     INTERNAL_IPS = [

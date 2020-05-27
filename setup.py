@@ -5,7 +5,7 @@ with open("README.rst", "r") as fh:
 
 setuptools.setup(
     name="django-filtered-articles-pkg-tobyontour", # Replace with your own username
-    version="0.0.1",
+    version="0.0.2",
     author="Toby Bettridge",
     author_email="toby.bettridge@stubside.com",
     description="A django article app",
@@ -36,5 +36,5 @@ setuptools.setup(
         'django-model-utils>=4.0.0',
         'docutils>=0.16'
     ],
-    test_suite='django-filtered-articles.tests.runtests.runtests'
+    test_suite='filtered_articles.tests.runtests.runtests'
 )
