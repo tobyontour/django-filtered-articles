@@ -14,7 +14,7 @@ Quick start
 
     INSTALLED_APPS = [
         ...
-        'django-filtered-articles',
+        'filtered_articles',
     ]
 
 2. Include the articles URLconf in your project urls.py like this::
